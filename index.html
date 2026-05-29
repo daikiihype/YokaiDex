@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YokaiDex — Enciclopédia dos Espíritos</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Atmospheric background layers -->
+  <div class="bg-layer bg-noise"></div>
+  <div class="bg-layer bg-vignette"></div>
+  <div class="bg-layer bg-scan"></div>
+
+  <!-- Floating embers -->
+  <div class="embers" id="embers"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-jp">妖怪</span>
+        <span class="logo-main">YokaiDex</span>
+        <span class="logo-sub">図鑑</span>
+      </div>
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span class="status-text" id="statusText">172 espíritos catalogados</span>
+      </div>
+      <div class="nav-search-wrap">
+        <input type="text" id="searchInput" class="search-input" placeholder="Buscar yokai..." autocomplete="off" />
+        <span class="search-icon">⛩</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <span class="filter-label">CATEGORIA</span>
+      <div class="filters" id="filterBtns">
+        <button class="filter-btn active" data-type="all">Todos</button>
+        <button class="filter-btn" data-type="demônio">Demônio</button>
+        <button class="filter-btn" data-type="fantasma">Fantasma</button>
+        <button class="filter-btn" data-type="animal">Animal</button>
+        <button class="filter-btn" data-type="divino">Divino</button>
+        <button class="filter-btn" data-type="objeto">Objeto</button>
+        <button class="filter-btn" data-type="humanoide">Humanoide</button>
+        <button class="filter-btn" data-type="aquático">Aquático</button>
+        <button class="filter-btn" data-type="natureza">Natureza</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-container">
+    <!-- Results count -->
+    <div class="results-bar">
+      <span class="results-count" id="resultsCount"></span>
+      <span class="results-line"></span>
+    </div>
+
+    <!-- Grid -->
+    <div class="yokai-grid" id="yokaiGrid"></div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="emptyState" style="display:none">
+      <div class="empty-kanji">無</div>
+      <p>Nenhum yokai encontrado</p>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-glyph" id="modalGlyph"></div>
+      <div class="modal-header">
+        <div class="modal-badge" id="modalBadge"></div>
+        <h2 class="modal-name" id="modalName"></h2>
+        <p class="modal-jp" id="modalJp"></p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icon-wrap" id="modalIconWrap">
+          <div class="modal-icon" id="modalIcon"></div>
+          <div class="modal-halo"></div>
+        </div>
+        <div class="modal-info">
+          <div class="modal-type-row">
+            <span class="modal-type-label">TIPO</span>
+            <span class="modal-type-val" id="modalType"></span>
+          </div>
+          <div class="modal-danger-row">
+            <span class="modal-type-label">PERIGO</span>
+            <div class="danger-dots" id="modalDanger"></div>
+          </div>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="modal-lore" id="modalLore"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-stat" id="modalStat1"></div>
+        <div class="modal-stat" id="modalStat2"></div>
+        <div class="modal-stat" id="modalStat3"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
